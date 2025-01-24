@@ -46,6 +46,7 @@ const Shop = () => {
           stock,
           discount
         }`;
+        
         const result = await sanityClient.fetch(query);
         setProducts(
           result.map((item: ProductType) => ({
