@@ -1,7 +1,6 @@
 import { Rule } from 'sanity'; // Import the Rule type
 
-// Define the schema object first
-const productSchema = {
+export default {
   name: 'product',
   title: 'Product',
   type: 'document',
@@ -47,6 +46,8 @@ const productSchema = {
           { title: 'Jewelry', value: 'jewelry' },
           { title: 'Accessories', value: 'accessories' },
           { title: 'Furniture', value: 'furniture' },
+          
+
         ], // Dropdown for predefined categories
       },
     },
@@ -108,6 +109,3 @@ const productSchema = {
     },
   ],
 };
-
-// Export the schema object
-export default productSchema;

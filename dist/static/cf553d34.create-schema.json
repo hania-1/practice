@@ -1,0 +1,164 @@
+[
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "price",
+        "type": "number"
+      },
+      {
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "image",
+        "type": "image"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Electronics",
+              "value": "electronics"
+            },
+            {
+              "title": "Clothing",
+              "value": "clothing"
+            },
+            {
+              "title": "Home Appliances",
+              "value": "home-appliances"
+            },
+            {
+              "title": "Books",
+              "value": "books"
+            },
+            {
+              "title": "Toys",
+              "value": "toys"
+            },
+            {
+              "title": "Sports",
+              "value": "sports"
+            },
+            {
+              "title": "Health",
+              "value": "health"
+            },
+            {
+              "title": "Beauty",
+              "value": "beauty"
+            },
+            {
+              "title": "Groceries",
+              "value": "groceries"
+            },
+            {
+              "title": "Jewelry",
+              "value": "jewelry"
+            },
+            {
+              "title": "Accessories",
+              "value": "accessories"
+            },
+            {
+              "title": "Furniture",
+              "value": "furniture"
+            }
+          ]
+        },
+        "name": "category",
+        "type": "string"
+      },
+      {
+        "description": "Available stock quantity",
+        "name": "stock",
+        "type": "number"
+      },
+      {
+        "description": "Stock Keeping Unit (Unique identifier for products)",
+        "name": "sku",
+        "type": "string",
+        "title": "SKU"
+      },
+      {
+        "name": "brand",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 0
+              },
+              {
+                "flag": "max",
+                "constraint": 5
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Average customer rating",
+        "name": "rating",
+        "type": "number"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 0
+              },
+              {
+                "flag": "max",
+                "constraint": 100
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Discount percentage",
+        "name": "discount",
+        "type": "number"
+      },
+      {
+        "description": "Mark this product as featured",
+        "name": "isFeatured",
+        "type": "boolean",
+        "title": "Featured Product"
+      },
+      {
+        "description": "Date when the product was added",
+        "name": "createdAt",
+        "type": "datetime"
+      },
+      {
+        "description": "Last updated date of the product",
+        "name": "updatedAt",
+        "type": "datetime"
+      },
+      {
+        "description": "Keywords for search and filtering",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "tags",
+        "type": "array"
+      }
+    ],
+    "name": "product",
+    "type": "document"
+  }
+]

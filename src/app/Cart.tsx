@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { ImBin2 } from "react-icons/im";
@@ -16,8 +17,10 @@ const Cart = () => {
       image: string;
     }[]
   >([]);
+  const [isHydrated, setIsHydrated] = useState(false); // Ensure hydration
 
   useEffect(() => {
+    setIsHydrated(true); // Mark as hydrated
     const storedCart = localStorage.getItem("cart");
     if (storedCart) {
       const cart = JSON.parse(storedCart);
@@ -54,6 +57,8 @@ const Cart = () => {
     (sum, item) => sum + item.price * item.quantity,
     0
   );
+
+  if (!isHydrated) return null; // Prevent rendering until hydrated
 
   return (
     <>
@@ -93,23 +98,21 @@ const Cart = () => {
         <div className="w-full md:w-[1240px] flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 justify-center mx-auto m-7">
           {/* Left Section */}
           <div className="w-full md:w-[60%] rounded-md p-4">
-          {cartItems.length > 0 ? (
-  cartItems.map((item) => {
-    console.log(item.image); // Log the image URL or path to the console
-    return (
-      <div
-        key={item.id}
-        className="flex flex-wrap md:flex-nowrap gap-4 sm:gap-6 mt-4 items-center bg-white"
-      >
-        <div className="w-[106px] h-[106px] rounded-lg bg-[#FBEBB5] flex items-center justify-center overflow-hidden">
-  <Image
-    src={item.image || "/placeholder.png"} // Use placeholder if no image
-    alt={`Image of ${item.name}`}
-    width={106} // Match the container's width
-    height={106} // Match the container's height
-    className="object-cover rounded-md"
-  />
-</div>
+            {cartItems.length > 0 ? (
+              cartItems.map((item) => (
+                <div
+                  key={item.id}
+                  className="flex flex-wrap md:flex-nowrap gap-4 sm:gap-6 mt-4 items-center bg-white"
+                >
+                  <div className="w-[106px] h-[106px] rounded-lg bg-[#FBEBB5] flex items-center justify-center overflow-hidden">
+                    <Image
+                      src={item.image?.startsWith("http") ? item.image : "/placeholder.png"}
+                      alt={`Image of ${item.name}`}
+                      width={106}
+                      height={106}
+                      className="object-cover rounded-md"
+                    />
+                  </div>
 
                   <div className="flex flex-col md:flex-row md:justify-between gap-4 w-full items-start mr-4 mt-8">
                     <ul className="flex flex-col md:flex-row justify-between w-full gap-2">
@@ -150,8 +153,7 @@ const Cart = () => {
                     </div>
                   </div>
                 </div>
-              )
-            })
+              ))
             ) : (
               <div className="text-center text-gray-600">
                 Your cart is empty!

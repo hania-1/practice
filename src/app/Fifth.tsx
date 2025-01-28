@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link'; // Import Link from Next.js
 import { CiCalendarDate } from 'react-icons/ci';
 import { LuClock5 } from 'react-icons/lu';
 
@@ -78,12 +77,7 @@ const Fifth = () => {
 
       {/* View More Section */}
       <div className="m-20">
-        <Link href="/blog" passHref>
-          <p className="flex items-center justify-center hover:text-slate-600 m-0 font-medium cursor-pointer">
-            View More Post
-          </p>
-        </Link>
-        <hr className="border-gray-800 border-2 w-20 mx-auto mt-2" />
+        
       </div>
     </div>
   );
