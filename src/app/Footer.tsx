@@ -99,7 +99,4 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
     </div>
   );
 };
-
-
-
 export default Footer;

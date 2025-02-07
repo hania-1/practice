@@ -2,23 +2,21 @@ import React from "react";
 import { FaPhone } from "react-icons/fa6";
 import { MdAccessTimeFilled } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
-import { IoIosArrowForward } from "react-icons/io";
 import Image from "next/image";
 import AboveFooter from "./AboveFooter";
-import Link from "next/link"
 
-const page = () => {
+const Contact: React.FC = () => {
   return (
     <>
       {/* Image Section */}
-    <div className="relative w-full h-[60vh]">
-      <Image
-        className="object-cover blur-sm"
-        src="/img13.jpeg"
-        alt="Wide Image"
-        layout="fill"
-        priority={true}
-      />
+      <div className="relative w-full h-[60vh]">
+        <Image
+          className="object-cover blur-sm"
+          src="/img13.jpeg"
+          alt="Wide Image"
+          layout="fill"
+          priority={true}
+        />
 
         {/* Overlay Content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-black">
@@ -36,18 +34,13 @@ const page = () => {
           <h1 className="text-5xl font-bold mb-4">Contact</h1>
 
           {/* Navigation Text with Arrow */}
-          <div className="flex items-center space-x-2 mb-10">
-            <Link href="/" passHref>
-              <span className="text-1xl font-semibold cursor-pointer">
-                Home
-              </span>
-            </Link>
-            <IoIosArrowForward />
-            <span className="text-1xl font-normal">Contact</span>
+          <div className="flex items-center space-x-2 mb-10 font-semibold font-serif text-lg">
+          Let’s Connect! Your Questions, Ideas, or Feedback – We’re All Ears!
           </div>
         </div>
-
       </div>
+
+      {/* Contact Section */}
       <div className="relative">
         <div className="max-w-full lg:max-w-[1440px] h-auto lg:h-[1144px] bg-[#FFFFFF]">
           <div className="flex flex-col items-center justify-center m-auto space-y-4 mt-8 px-4 sm:px-8 md:px-16">
@@ -60,6 +53,7 @@ const page = () => {
               Out. Do Not Hesitate!
             </p>
           </div>
+
           <div className="w-full sm:w-[1058px] sm:h-[923px] m-auto flex flex-col sm:flex-col lg:flex-row gap-10 sm:gap-12 mt-10 p-4 md:p-8">
             {/* Contact Info Section */}
             <div className="flex flex-col w-full sm:w-[393px] h-auto sm:h-[537px] gap-10">
@@ -145,7 +139,7 @@ const page = () => {
                       ></textarea>
                     </div>
                     <div>
-                      <button className="w-full hover:text-white sm:w-[237px] h-[48px] rounded-[10px] text-base font-semibold text-black bg-[#FAF4F4] border-[1px] border-[#090820] transition-all duration-300 ease-in-out transform hover:bg-[#080718] hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#FAF4F4] focus:ring-offset-2">
+                      <button className="w-full hover:text-white sm:w-[237px] h-[48px] rounded-[10px] text-base font-semibold text-black bg-[#FAF4F4] border-[1px] border-[#090820] transition-all duration-300 ease-in-out transform hover:bg-[#080718] hover:scale-105">
                         Submit
                       </button>
                     </div>
@@ -154,7 +148,6 @@ const page = () => {
               </div>
             </div>
           </div>
-          <div></div>
         </div>
         <AboveFooter />
       </div>
@@ -162,4 +155,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Contact;

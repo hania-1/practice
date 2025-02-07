@@ -1,7 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
 
-const Second = () => {
+interface Props {
+  setCurrentPage: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const Second: React.FC<Props> = ({ setCurrentPage }) => {
   return (
     <div className="bg-[#FAF4F4] flex items-center justify-center min-h-screen gap-10">
       {/* First Image with Text */}
@@ -15,7 +19,12 @@ const Second = () => {
           priority={true}
         />
         <div className="mt-[-96px] mr-52 text-3xl font-semibold m-2">Side Table</div>
-        <p className='mr-64 hover:text-slate-600'>View More</p>
+        <p
+          className='mr-64 hover:text-slate-600 cursor-pointer'
+          onClick={() => setCurrentPage("shop")} // Navigate to Product page
+        >
+          View More
+        </p>
         <hr className="border-gray-800 border-2 mt-2 w-20 mr-64" />
       </div>
 
@@ -31,7 +40,12 @@ const Second = () => {
         />
         {/* Text below the second image */}
         <div className="mt-4 text-3xl font-semibold">Side Sofa</div>
-        <p className='mt-2 hover:text-slate-600'>View More</p>
+        <p
+          className='mt-2 hover:text-slate-600 cursor-pointer'
+          onClick={() => setCurrentPage("shop")} // Navigate to Product page
+        >
+          View More
+        </p>
         <hr className="border-gray-800 border-2 mt-2 w-20" />
       </div>
     </div>

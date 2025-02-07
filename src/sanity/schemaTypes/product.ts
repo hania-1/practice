@@ -35,17 +35,11 @@ export default {
       options: {
         list: [
           { title: 'Electronics', value: 'electronics' },
-          { title: 'Clothing', value: 'clothing' },
-          { title: 'Home Appliances', value: 'home-appliances' },
-          { title: 'Books', value: 'books' },
-          { title: 'Toys', value: 'toys' },
-          { title: 'Sports', value: 'sports' },
-          { title: 'Health', value: 'health' },
-          { title: 'Beauty', value: 'beauty' },
-          { title: 'Groceries', value: 'groceries' },
-          { title: 'Jewelry', value: 'jewelry' },
-          { title: 'Accessories', value: 'accessories' },
-          { title: 'Furniture', value: 'furniture' },
+          { title: 'Tables', value: 'tables' },
+          { title: 'Sofa Sets', value: 'sofa-sets' },
+          { title: 'Chairs', value: 'chairs' },
+          { title: 'Table Chairs set', value: 'table-chairs-set' },
+          { title: 'Beds', value: 'beds' },
           
 
         ], // Dropdown for predefined categories

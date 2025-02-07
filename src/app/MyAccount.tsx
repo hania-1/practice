@@ -1,12 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { IoIosArrowForward } from "react-icons/io";
-import Link from "next/link";
+// import { IoIosArrowForward } from "react-icons/io";
 import AboveFooter from "./AboveFooter";
-
-
-
-
 
 
 const MyAccount = () => { 
@@ -36,17 +31,6 @@ const MyAccount = () => {
 
           {/* Main Title */}
           <h1 className="text-5xl font-bold mb-4">My Account</h1>
-
-          {/* Navigation Text with Arrow */}
-          <div className="flex items-center space-x-2 mb-10">
-            <Link href="/" passHref>
-              <span className="text-1xl font-semibold cursor-pointer">
-                Home
-              </span>
-            </Link>
-            <IoIosArrowForward />
-            <span className="text-1xl font-normal">My Account</span>
-          </div>
         </div>
       </div>
 

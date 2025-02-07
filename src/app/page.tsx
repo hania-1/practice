@@ -16,14 +16,20 @@ import About from "./About/Page";
 import Contact from "./Contact";
 import Blog from "./Blog";
 import Wishlist from "./Wishlist/page";
+import Product from "./Product";
+import NavIcons from "./NavIcons";
+import Review from "./Review/page";
 import Footer from "./Footer";
+type Product = {
+  id: string;
+  name: string;
+  price: number;
+  image?: string; // Optional image field
+};
 
 export default function HomePage() {
   const [currentPage, setCurrentPage] = useState("home"); // Track current page
-
-  // Disable the ESLint rule for the following line
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [likedProducts, setLikedProducts] = useState<any[]>([]);
+  const [likedProducts, setLikedProducts] = useState<Product[]>([]); // Use Product[] instead of any[]
 
   return (
     <main>
@@ -31,27 +37,30 @@ export default function HomePage() {
         {/* Navbar */}
         <Navbar setCurrentPage={setCurrentPage} likedProducts={likedProducts} setLikedProducts={setLikedProducts} />
 
+
         {/* Conditional Rendering */}
         {currentPage === "home" && (
           <>
-            {/* Home Section */}
-            <div id="Home">
-              <Home />
-            </div>
+          {currentPage === "home" && (
+  <div id="home">
+    <Home setCurrentPage={setCurrentPage} />
+  </div>
+)}
 
             {/* Other Sections */}
             <div id="Second">
-              <Second />
+              <Second setCurrentPage={setCurrentPage} />
             </div>
             <div id="Third">
               <Third setCurrentPage={setCurrentPage} />
             </div>
             <div id="Fourth">
-              <Fourth />
+              <Fourth setCurrentPage={setCurrentPage} />
             </div>
             <div id="Fifth">
-              <Fifth />
+              <Fifth setCurrentPage={setCurrentPage} />
             </div>
+
             <div id="Sixth">
               <Sixth />
             </div>
@@ -75,6 +84,21 @@ export default function HomePage() {
           </div>
         )}
 
+        {/* NavIcons Section */}
+        {currentPage === "NavIcons" && (
+          <div id="NavIcons">
+            <NavIcons setCurrentPage={setCurrentPage} />
+          </div>
+        )}
+
+  {/* Review Section */}
+{/* Review Section */}
+{currentPage === "Review" && (
+  <div id="Review">
+<Review setCurrentPage={setCurrentPage} />  </div>
+)}
+   
+
         {/* MyAccount Section */}
         {currentPage === "MyAccount" && (
           <div id="MyAccount">
@@ -88,6 +112,15 @@ export default function HomePage() {
             <CheckOut />
           </div>
         )}
+
+        {/* Product Section */}
+     {/* Product Section */}
+{currentPage === "Product" && (
+          <div id="Product">
+            <Product />
+          </div>
+        )}
+
 
         {/* Cart Section */}
         {currentPage === "Cart" && (

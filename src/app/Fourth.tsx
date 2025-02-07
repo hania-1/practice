@@ -1,7 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
 
-const Fourth = () => {
+interface Props {
+  setCurrentPage: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const Fourth: React.FC<Props> = ({ setCurrentPage }) => {
   return (
     <div>
       <div className='relative bg-[#FFF9E5]'>
@@ -23,7 +27,10 @@ const Fourth = () => {
           <p className="mt-4 text-5xl font-semibold text-center ">Asgaard sofa</p>
 
           {/* Order Now Rectangular Box with Border */}
-          <div className="mt-4 border-2 border-black w-32 h-10 flex items-center justify-center mr-44 hover:bg-black hover:text-white">
+          <div
+            className="mt-4 border-2 border-black w-32 h-10 flex items-center justify-center mr-44 hover:bg-black hover:text-white cursor-pointer"
+            onClick={() => setCurrentPage("Cart")} // Navigate to the Product page
+          >
             Order Now
           </div>
         </div>

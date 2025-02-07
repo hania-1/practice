@@ -1,7 +1,5 @@
 import React from "react";
-import Link from "next/link";
 import AboveFooter from "./AboveFooter";
-import { IoIosArrowForward } from "react-icons/io";
 import Image from "next/image";
 // import Pagination from "../Components/Pagination";
 import { FaSearch } from "react-icons/fa";
@@ -38,14 +36,8 @@ const page = () => {
           <h1 className="text-5xl font-bold mb-4">Blog</h1>
 
           {/* Navigation Text with Arrow */}
-          <div className="flex items-center space-x-2 mb-10">
-            <Link href="/" passHref>
-              <span className="text-1xl font-semibold cursor-pointer">
-                Home
-              </span>
-            </Link>
-            <IoIosArrowForward />
-            <span className="text-1xl font-normal">Blog</span>
+          <div className="flex items-center space-x-2 mb-10 font-semibold font-serif text-lg">
+          Explore, Learn, and Grow – Dive into Our World of Ideas!
           </div>
         </div>
       </div>
