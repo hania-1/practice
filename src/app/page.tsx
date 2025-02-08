@@ -18,7 +18,6 @@ import Blog from "./Blog";
 import Wishlist from "./Wishlist/page";
 import Product from "./Product";
 import NavIcons from "./NavIcons";
-import Review from "./Review/page";
 import Footer from "./Footer";
 type Product = {
   id: string;
@@ -90,14 +89,6 @@ export default function HomePage() {
             <NavIcons setCurrentPage={setCurrentPage} />
           </div>
         )}
-
-  {/* Review Section */}
-{/* Review Section */}
-{currentPage === "Review" && (
-  <div id="Review">
-<Review setCurrentPage={setCurrentPage} />  </div>
-)}
-   
 
         {/* MyAccount Section */}
         {currentPage === "MyAccount" && (

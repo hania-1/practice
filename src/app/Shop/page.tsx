@@ -9,6 +9,7 @@ import { client as sanityClient } from "../../sanity/lib/client";
 import { groq } from "next-sanity";
 import Product from "../Product";
 import { FaSearch } from "react-icons/fa";
+import { GoCodeReview } from "react-icons/go";
 
 type ProductType = {
   _id: string;
@@ -25,7 +26,10 @@ type ProductType = {
 };
 
 const Shop = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false); 
+   const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
+  const openReviewModal = () => setIsReviewModalOpen(true);
+  const closeReviewModal = () => setIsReviewModalOpen(false);
   const [selectedProduct, setSelectedProduct] = useState<ProductType | null>(null);
   const [cart, setCart] = useState<{ id: string; quantity: number; price: number; image: string; size: string; color: string }[]>([]);
   const [products, setProducts] = useState<ProductType[]>([]);
@@ -36,6 +40,7 @@ const Shop = () => {
   const [currentPage, setCurrentPage] = useState(1); // State for the current page
   const itemsPerPage = 16; // Limit to 16 products per page
 
+  
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -147,16 +152,72 @@ const Shop = () => {
   return (
     <div>
       <Product />
-      <div className="flex items-center border border-gray-300 rounded-lg p-2 w-96 mx-auto m-2">
-        <FaSearch className="text-gray-600 w-5 h-5 mr-2" />
-        <input
-          type="text"
-          placeholder="Search products..."
-          className="p-2 w-full focus:outline-none"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
+          <div className="flex items-center border border-gray-300 rounded-lg p-2 w-96 mx-auto m-2 relative">
+      <FaSearch className="text-gray-600 w-5 h-5 mr-2" />
+      <input
+        type="text"
+        placeholder="Search products..."
+        className="p-2 w-full focus:outline-none"
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
+      <GoCodeReview 
+        className="text-gray-600 w-6 h-6 ml-2 cursor-pointer" 
+        onClick={openReviewModal} 
+      />
+    </div>
+
+    {isReviewModalOpen && (
+  <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
+    <div className="bg-white p-5 rounded-lg shadow-lg w-96">
+      <h2 className="text-lg font-semibold text-center">
+        Would you like to give a review about our products and website?
+      </h2>
+      <p className="text-gray-600 text-sm text-center mt-2">
+        Your feedback helps us improve our services.
+      </p>
+      <div className="mt-4">
+        <label className="block text-sm font-medium text-gray-700">
+          How would you rate our website experience?
+        </label>
+        <select className="w-full p-2 border border-gray-300 rounded mt-1">
+          <option>Excellent</option>
+          <option>Good</option>
+          <option>Average</option>
+          <option>Poor</option>
+        </select>
       </div>
+      <div className="mt-4">
+        <label className="block text-sm font-medium text-gray-700">
+          How satisfied are you with our product quality?
+        </label>
+        <select className="w-full p-2 border border-gray-300 rounded mt-1">
+          <option>Very Satisfied</option>
+          <option>Satisfied</option>
+          <option>Neutral</option>
+          <option>Dissatisfied</option>
+        </select>
+      </div>
+      <div className="mt-4">
+        <label className="block text-sm font-medium text-gray-700">
+          Additional Comments
+        </label>
+        <textarea
+          className="w-full p-2 border border-gray-300 rounded mt-1"
+          rows={3}
+        ></textarea>
+      </div>
+      <div className="flex justify-end mt-4">
+        <button className="bg-gray-500 text-white px-4 py-2 rounded mr-2" onClick={closeReviewModal}>
+          Cancel
+        </button>
+        <button className="bg-blue-500 text-white px-4 py-2 rounded">Submit</button>
+      </div>
+    </div>
+  </div>
+)}
+
+
       <div className="grid grid-cols-4 gap-4 mt-10 px-6">
         {currentProducts.length === 0 ? (
           <p>No products found</p>
